@@ -5,9 +5,6 @@ import './AutoCompleteText.css';
 export default class AutoCompleteText extends React.Component {
     constructor (props) {
         super(props);
-        this.items = [
-            'David', 'Damien', 'Sarah', 'Jane'
-        ];
 
         this.state = {
             suggestions: [],
@@ -16,12 +13,13 @@ export default class AutoCompleteText extends React.Component {
     }
 
     onTextChanged = (e) => {
+        const {items} = this.props;
         const value = e.target.value;
         let suggestions = [];
 
         if(value.length > 0){
             const regex = new RegExp(`^${value}`, 'i');
-            suggestions = this.items.sort().filter(v => regex.test(v));
+            suggestions = items.sort().filter(v => regex.test(v));
         }
 
         this.setState(() => ({ suggestions, text: value }));
