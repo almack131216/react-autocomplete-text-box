@@ -8,7 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AutoCompleteText />
+        <div className="App-Component">
+          <AutoCompleteText />
+        </div>
         <HideableText text="Dynamic Text!"/>          
       </div>
     )
